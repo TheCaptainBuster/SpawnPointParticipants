@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerCoin : MonoBehaviour
 {
     private int coinCount = 0;
+    public GameManager gameManager;
 
     public TextMeshProUGUI coinCountText;
 
@@ -14,12 +16,10 @@ public class PlayerCoin : MonoBehaviour
     }
     private void Update()
     {
-        /*if(coinScript.coinCollected == true)
+        if (coinCount == 5)
         {
-            coinCount += 1;
-            Debug.Log(coinCount);
-            coinCountText.text = coinCount.ToString(); 
-        }*/
+            gameManager.GameOver();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

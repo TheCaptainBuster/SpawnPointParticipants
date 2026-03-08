@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if(currentHealth == 0)
+        if (currentHealth == 0)
         {
             gameManager.GameOver();
         }
@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void TakeDamage (int damageAmt)
+    void TakeDamage(int damageAmt)
     {
         currentHealth -= damageAmt;
         healthBarScript.SetPlayerHealth(currentHealth);

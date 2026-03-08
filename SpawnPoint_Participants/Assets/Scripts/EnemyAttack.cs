@@ -10,13 +10,13 @@ public class EnemyAttack : MonoBehaviour
     private float timer;
 
     private void Start()
-    { 
+    {
         player = GameObject.FindGameObjectWithTag("Player");
     }
     private void Update()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if(distance <= 8)
+        if (distance <= 8)
         {
             timer += Time.deltaTime;
             if (timer > 2)

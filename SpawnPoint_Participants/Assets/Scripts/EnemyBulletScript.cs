@@ -5,10 +5,12 @@ public class EnemyBulletScript : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
     public float bulletForce = 3f;
+    public float bulletDeleteTimer = 0;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        bulletDeleteTimer = 0;
 
         Vector3 direction = player.transform.position - transform.position;
         rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * bulletForce;
@@ -19,12 +21,21 @@ public class EnemyBulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);
         }
 
-        if(collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        bulletDeleteTimer += Time.deltaTime;
+        if (bulletDeleteTimer >= 4)
         {
             Destroy(this.gameObject);
         }

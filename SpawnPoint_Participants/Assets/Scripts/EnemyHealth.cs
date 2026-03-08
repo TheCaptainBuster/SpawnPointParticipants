@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public GameObject playerBullet;
-    public float TotalHealth=5f;
+    public float TotalHealth = 5f;
     private float currentHealth;
 
     public GameObject coinPrefab;
