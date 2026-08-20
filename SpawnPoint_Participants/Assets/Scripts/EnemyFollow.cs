@@ -17,7 +17,7 @@ public class EnemyFollow : MonoBehaviour
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
         Debug.Log(distance);
-        if (distance < 9 && distance > 3)
+        if (distance < 50 && distance > 10)
         {
             if (hasLOS) //this IF statement has been added for raycast.
             {
